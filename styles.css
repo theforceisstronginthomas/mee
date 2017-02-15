@@ -1,0 +1,251 @@
+*:focus {
+	outline: none;
+}
+
+body {
+	font: 14px/21px "Segoe UI Light", Arial, sans-serif; 
+	float: ;
+    margin: 1px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+
+}
+
+.form option {
+	background-color: #171815;
+	height: 20px;
+	width: 100px;
+	padding: 5px 8px;
+}
+
+#container {
+	
+	
+	height: 1px;
+	width: 100px;
+	padding-top: 5px;
+	padding-bottom: 7px;
+}
+
+#container2 {
+	position: relative;
+	height: 250px;
+	width: 620px;
+	left: 300px;
+	padding-top: 5px;
+	padding-bottom: 7px;
+}
+
+#container3 {
+	position: relative;
+	top: 20px;
+	height: 250px;
+	width: 620px;
+	left: 300px;
+	padding-top: 5px;
+	padding-bottom: 7px;
+}
+position: relative;
+	top: 20px;
+	height: 250px;
+	width: 620px;
+	left: 300px;
+	padding-top: 5px;
+	padding-bottom: 7px;
+}
+
+header  h1{
+    
+	color: gray;
+}
+
+.form ul {
+	width: 140px;
+	list-style-type: none;
+	margin: 0 45% 0 45%;
+	padding: 0px;
+}
+
+.form li {
+	padding: 5px;
+	border-bottom: 1px solid #eee;
+	position: relative;
+}
+
+
+.form li:first-child, .form li:last-child {
+	border-bottom: 1px solid #777;
+}
+
+.form select {
+   background-color: #68b12f;
+   border-radius: 4px;
+   opacity: 60;
+   color: white;
+}
+
+.form option {
+   background-color: gray;
+   opacity: 100;
+}
+
+.form select:hover {
+   opacity: .85;
+	cursor: pointer;
+}
+
+.form label {
+	width: 150px;
+	margin-top: 3px;
+	display: inline-block;
+	float: left;
+	padding: 3px;
+}
+ .form input {
+	height: 20px;
+	width: 100px;
+	padding: 5px 8px;
+ }
+ 
+.form textarea {
+	padding:8px; width:300px;
+}
+ 
+.form input {
+	border: 1px solid #aaa;
+	box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+	border-radius: 10px;
+	-moz-transition: padding .25s; 
+    -webkit-transition: padding .25s; 
+    -o-transition: padding .25s;
+    transition: padding .25s;
+ }
+ 
+ .form input:focus  {
+    background: #fff; 
+    border: 1px solid #555; 
+    box-shadow: 0 0 3px #aaa; 
+	padding-right: 70px;
+ }
+ 
+ button.calculate {
+    background-color: #00adee;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#00adee));
+    background: -webkit-linear-gradient(top, #00adee, #00adee);
+    background: -moz-linear-gradient(top, #00adee, #00adee);
+    background: -ms-linear-gradient(top, #00adee, #00adee);
+    background: -o-linear-gradient(top, #00adee, #00adee);
+    background: linear-gradient(top, #00adee, #00adee);
+    border: 1px solid #00adee;
+    border-bottom: 1px solid #00adee;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #00adee;
+    -webkit-box-shadow: 0 1px 0 0 #00adee inset ;
+    -moz-box-shadow: 0 1px 0 0 #00adee inset;
+    -ms-box-shadow: 0 1px 0 0 #00adee inset;
+    -o-box-shadow: 0 1px 0 0 #00adee inset;
+    color: white;
+    font-family: "Segoe UI Light", Arial, sans-serif;
+	font-size: 15px;
+    padding: 6px 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #00adee;
+	margin-left: 5px;
+	width: 100px;
+	height: 41px;
+}
+
+button.calculate:hover {
+	opacity: .85;
+	cursor: pointer;
+}
+
+button.calculate:active {
+    border: 1px solid #00adee;
+    box-shadow: 0 0 10px 5px #00adee inset; 
+    -webkit-box-shadow:0 0 10px 5px #00adee inset ;
+    -moz-box-shadow: 0 0 10px 5px #00adee inset;
+    -ms-box-shadow: 0 0 10px 5px #00adee inset;
+    -o-box-shadow: 0 0 10px 5px #00adee inset;
+     
+}
+
+button.calculate {
+    margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #0076a3; border-right:0px;
+		background: #0095cd;
+		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+	height: 41px;
+}
+
+button.calculate:hover {
+	opacity: .85;
+	cursor: pointer;
+}
+
+button.calculate:active {
+    border: 1px solid #00adee;
+    box-shadow: 0 0 10px 5px #00adee inset; 
+    -webkit-box-shadow:0 0 10px 5px #00adee inset ;
+    -moz-box-shadow: 0 0 10px 5px #00adee inset;
+    -ms-box-shadow: 0 0 10px 5px #00adee inset;
+    -o-box-shadow: 0 0 10px 5px #00adee inset;
+     
+}
+
+button.reset {
+     border: 1px solid #00adee;
+    border-bottom: 1px solid #00adee;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #00adee;
+    -webkit-box-shadow: 0 1px 0 0 #00adee inset ;
+    -moz-box-shadow: 0 1px 0 0 #00adee inset;
+    -ms-box-shadow: 0 1px 0 0 #00adee inset;
+    -o-box-shadow: 0 1px 0 0 #00adee inset;
+    color: white;
+    font-family: "Segoe UI Light", Arial, sans-serif;
+	font-size: 15px;
+    padding: 6px 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #00adee;
+	margin-left: 5px;
+	width: 100px;
+	height: 41px;
+		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	
+}
+
+button.reset:hover {
+	opacity: .85;
+	cursor: pointer;
+}
+
+button.reset:active {
+    border: 1px solid #00adee;
+    box-shadow: 0 0 10px 5px #00adee inset; 
+    -webkit-box-shadow:0 0 10px 5px #00adee inset ;
+    -moz-box-shadow: 0 0 10px 5px #00adee inset;
+    -ms-box-shadow: 0 0 10px 5px 

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	
+    <link rel="stylesheet" href="styles.css"/>
+    
+    <script src="jquery.js"></script>
+	<script>
+        
+
+var CALC = {
+				
+	onReady: function() {
+		$('focus').focus();
+		$('button.reset').hide();
+		$('button.calculate').click(CALC.calculate);
+		$('button.reset').click(CALC.reset);
+	},
+	
+	calculate: function(event) {
+		// Get quantity
+	var amount = $('#amount').val();
+    
+    var intrest = $('#intrest'). val ();
+	
+    var cal    = (intrest * amount/ 100);
+        
+    var profit = ((amount * 1) - (cal * 1));
+    profit=profit.toFixed(2);
+	var totalCost =((cal * 1) + (amount * 1));
+	totalCost=totalCost.toFixed(2);
+
+
+
+      	
+    // Set total cost
+    $('#profit').val(profit);
+	$('#total').val(totalCost);
+	$('button.calculate').hide();
+	$('button.reset').show();
+    
+	
+	},
+    
+ 
+	
+	reset: function(event) {
+		$('#amount').val('');
+        $('#intrest'). val ('');
+        $('#profit'). val ('');
+        $('#total').val('');
+        $('#quantity').focus();
+		$('button.calculate').show();
+		$('button.reset').hide();
+		
+}
+};
+
+
+	
+$(document).ready(CALC.onReady);
+ 
+
+    </script>
+	
+	
+	
+	</head>
+<body>
+
+    
+	<font color='green'><div class="form">
+		
+		<br>
+                <br>
+			 <font color="green"><h1>Profit calculator</h1></font>
+			
+		          <br>
+			     <br>
+				<label for="sumassured" id="sumassured_label">Amount</label>
+				<input name="amount" type="text" id="amount"/>
+				<br>
+                <br>
+			
+					
+			
+			
+			
+				<label for="sumassured" id="sumassured_label">intrest %</label>
+				<input name="profit" type="text" id="intrest"/>
+			
+			<br>
+                <br>
+        
+        <label for="sumassured" id="sumassured_label">profit</label>
+				<input name="profit" type="text" id="profit"/>
+			
+			<br>
+                <br>
+			
+				<label for="total" id="total_label">total</label>
+				<input name="total" type="text" id="total"/>
+			
+			<br>
+                <br>
+			
+				
+			
+				<button type="button" value="button" class="calculate">Calculate</button>
+				<p></p>
+				<button type="reset" value="Reset" class="reset" >Reset</button>
+			<br>
+                <br>
+		
+</body>
+
+</html>

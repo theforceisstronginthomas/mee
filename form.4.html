@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+
+<head>
+    
+    <style>
+    
+        button{
+            
+            padding: 5px;
+            width: 100px;
+        }
+    
+    
+    
+    
+    </style>
+    
+    
+<script>
+    
+    var studentsArray =[];
+    
+    function init(){
+        
+        document.getElementById("tablerows").innerHTML="";
+        if (localStorage.studentsRecord){
+            studentsArray = JSON.parse(localStorage.studentsRecord);
+            for (var i=0; i <studentsArray.length; i++) {
+                
+                perpareTableCell(i,studentsArray[i].firstname,studentsArray[i].lastname,studentsArray[i].rollnum,studentsArray[i].subject);
+            }
+        }
+    }
+    
+    function onRegisterPressed () {
+        var q1 = document.getElementById("q1").value;
+        var firstName = document.getElementById("firstname").value;
+        var lastName = document.getElementById("lastname").value;
+        var rollNum = document.getElementById("rollnum").value;
+        var subject = document.getElementById("subject").value;
+        
+        var stuObj= { firstname:firstName,lastname:lastName,rollnum:rollNum,subject:subject}
+        studentsArray.push(stuObj);
+                     
+        localStorage.studentsRecord = JSON.stringify(studentsArray);
+        init();
+                
+                document.getElementById("q1").value="";
+                document.getElementById("firstname").value="";
+                document.getElementById("lastname").value="";
+                document.getElementById("rollnum").value="";
+        
+    }
+        function perpareTableCell (index,firstName,lastName,rollNum,subject) {
+            var table = document.getElementById("tablerows");
+            var row = table.insertRow()
+            var q1cell = row.insertCell(0)
+            var firstNameCell = row.insertCell(1);
+            var lastNameCell = row.insertCell(2);
+            var rollNameCell = row.insertCell(3);
+            var subjectCell = row.insertCell(4);
+            var actionCell = row.insertCell(5);
+            
+            q1cell.innerHTML = q1cell;
+            firstNameCell.innerHTML = firstName;
+            lastNameCell.innerHTML = lastName;
+            rollNameCell.innerHTML = rollNum;
+            subjectCell.innerHTML = subject;
+            actionCell.innerHTML = '<button>Edit</button><br><button onclick="deleteTableRow('+index+')">Delect</button>';
+        }
+
+    function deleteTableRow(index){
+        var table = document.getElementById("regtable"); 
+        table.deleteRow(index+1);
+        studentsArray.splice(index,1);
+        localStorage.studentsRecord = JSON.stringify(studentsArray);
+        init();
+    }
+    
+</script>
+    
+</head>
+
+<body onload="init()">
+    <div class="container">
+    
+    <header class="headerbar top"><center><strong>FOCUS LIFE ASSURANCE COMPANY LTD</strong></center>
+     </header>
+    <aside class="leftbar">
+        <div>
+        <fieldset>
+            <label for="q1">yes/no</label>
+            <select id="q1">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            </select>
+            <br>
+            <label for="firstname"><span> If yes, provide customer ID/policy No:</span></label>
+            <input type="text" placeholder="enter policy No." id="firstname">
+            </fieldset>
+            
+            <fieldset>
+            <label for="lastname"><span> Last Name</span></label>
+            <input type="text" placeholder="enter last name" id="lastname">
+            </fieldset>
+            
+            <fieldset>
+            <label for="rollnum"><span> Roll Number</span></label>
+            <input type="text" placeholder="enter roll number" id="rollnum">
+            </fieldset>
+        <fieldset>
+            <label for="subject"> subject</label>
+            <select id="subject">
+            <option value="math">math</option>
+            <option value="english">english</option>
+            <option value="biology">biology</option>
+            
+            </select>
+            </fieldset>
+            
+            
+            <fieldset>
+            <label for="submit"></label>
+            
+            <button id="submit" onclick="onRegisterPressed()">Register Client</button>
+            
+            </fieldset>
+          
+    </div>    
+        </aside>
+        
+        <aside class="rightbar">
+        
+            <table id="regtable"  BORDER=1 CELLPADDING=1>
+            
+                <tr>
+                <th>yes/no</th>
+                <th>Policy No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Roll Number</th>
+                <th>subject</th>
+                <th>Action</th>
+                </tr>
+                
+                <tbody id="tablerows">
+                
+                </tbody>
+            
+            </table>
+        
+        </aside>
+    
+        <footer class="headerbar bottom"></footer>
+
+    </div>
+        </body>
+
+
+</html>

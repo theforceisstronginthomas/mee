@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Drag And Move Extension - fullPage.js</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="Drag And Move sections and slides with fullpage.js" />
+	<meta name="keywords"  content="fullpage,extension,addon,dragAndMove,drag,drag and drop,grab,dragging,grabbing,swipe,finger,touch,snapping,snap,sections,panels,slides,onepage,scroll" />
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="examples.css" />
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<script src="jquery.min.js"></script>
+	<script type="text/javascript" src="easings.min.js"></script>
+
+	<script type="text/javascript" src="dragAndMove.limited.min.js"></script>
+	<script type="text/javascript" src="extensions.min.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		initNormal();
+
+		var commonOptions = {
+			sectionsColor: ['#c34bab', '#4BBFC3', 'whitesmoke', '#7BAABE', '#ccddff', '#ccc'],
+			anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
+			menu: '#menu',
+			dragAndMove: true,
+			dragAndMoveKey: 'YWx2YXJvdHJpZ28uY29tX0EyMlpISmhaMEZ1WkUxdmRtVT0wWUc=',
+			slidesNavigation: true
+		};
+
+		function initNormal(){
+			$('#myContainer').fullpage({
+				sectionsColor: ['#c34bab', '#4BBFC3', 'whitesmoke', '#7BAABE', '#ccddff', '#ccc'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
+				menu: '#menu',
+				dragAndMove: true,
+				dragAndMoveKey: 'YWx2YXJvdHJpZ28uY29tX0EyMlpISmhaMEZ1WkUxdmRtVT0wWUc=',
+				offsetSections: false,
+				slidesNavigation: true,
+				scrollOverflow: false
+			});
+		}
+
+		function initAutoScrollingFalse(){
+			commonOptions['scrollBar'] = false;
+			commonOptions['autoScrolling'] = false;
+			console.log(commonOptions);
+			$('#myContainer').fullpage(commonOptions);
+		}
+
+		function initScrollBarTrue(){
+			commonOptions['scrollBar'] = true;
+			commonOptions['autoScrolling'] = true;
+			console.log(commonOptions);
+			$('#myContainer').fullpage(commonOptions);
+		}
+
+		$(document).on('click', '#turnAutoScrollingOn', function(e){
+			e.preventDefault();
+			$(this).addClass('active').siblings().removeClass('active');
+			keepInPlace();
+			initNormal();
+		});
+
+		$(document).on('click', '#turnAutoScrollingOff', function(e){
+			e.preventDefault();
+			$(this).addClass('active').siblings().removeClass('active');
+			keepInPlace();
+			initAutoScrollingFalse();
+		});
+
+		$(document).on('click', '#turnScrollBarOn', function(e){
+			e.preventDefault();
+			$(this).addClass('active').siblings().removeClass('active');
+			keepInPlace();
+			initScrollBarTrue();
+		});
+
+		function keepInPlace(){
+			var activeSectionIndex = $('.fp-section.active').index();
+    		var activeSlideIndex = $('.fp-section.active').find('.slide.active').index();
+			$.fn.fullpage.destroy('all');
+			 //setting the active section as before
+			$('.section').eq(activeSectionIndex).addClass('active');
+		}
+
+	});
+	</script>
+	<style>
+		#actions{
+			position:fixed;
+			top: 73px;
+			left: 30px;
+			z-index: 99999;
+		}
+		#actions li{
+			background: rgba(0,0,0,0.8);
+			padding: 7px;
+			margin: 2px;
+			color: #ccc;
+			display: inline-block;
+			cursor: pointer;
+		}
+		#actions li:hover{
+			color: #fff;
+			background: #81A140;
+		}
+		#actions li.active{
+			background: rgba(255, 255, 0, 0.79);
+			color: #333;
+		}
+		#note{
+			position:fixed; 
+			z-index:99;
+			color: #fff;
+			font-size: 14px;
+			left: 40px;
+			width: 40%;
+			background: rgba(0,0,0,0.3);
+			padding:20px;
+            border-radius: 10px;
+            
+		}
+		.note:hover {
+	opacity: .85;
+            cursor: pointer;}
+        
+        
+        #dairy{
+            position: relative;
+            top:57px;
+            left: 50px;
+            width: 500px;
+            height: 500px;
+    
+        }
+        
+        #dairy2{
+            position: relative;
+            top:60px;
+            left: 50px;
+            width: 500px;
+            height: 500px;
+    
+        }
+        #con1{
+        
+        max-height:500px;
+        max-width: 320px;
+        overflow-y:auto;
+	   background-color: white;
+        
+        }
+        
+        #db{
+            background-image: url(images/diary2.png);
+            height: 100%;
+            width:100%;
+            
+        }
+        
+        #con2{
+            font-family: cursive;
+            color: black;
+            max-height:500px; 
+            overflow-y:auto;
+            background-color: ;
+        }
+        
+        .rf{
+            font-size: 30px;
+        }
+        
+        .Educare {
+           
+    background-color: #68b12f;
+    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+    background: -webkit-linear-gradient(top, #68b12f, #50911e);
+    background: -moz-linear-gradient(top, #68b12f, #50911e);
+    background: -ms-linear-gradient(top, #68b12f, #50911e);
+    background: -o-linear-gradient(top, #68b12f, #50911e);
+    background: linear-gradient(top, #68b12f, #50911e);
+    border: 1px solid #509111;
+    border-bottom: 1px solid #5b992b;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #9fd574;
+    -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+    -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+    color: white;
+    font-family: "Segoe UI Light", Arial, sans-serif;
+	font-size: 18px;
+    
+    text-align: center;
+    text-shadow: 0 -1px 0 #396715;
+	margin-left: 5px;
+	width: 400px;
+	height: 100px;
+    
+            }
+    
+.Educare:hover {
+	opacity: .85;
+	cursor: pointer;
+}
+
+.Educare:active {
+    border: 1px solid #20911e;
+    box-shadow: 0 0 10px 5px #356b0b inset; 
+    -webkit-box-shadow:0 0 10px 5px #356b0b inset ;
+    -moz-box-shadow: 0 0 10px 5px #356b0b inset;
+    -ms-box-shadow: 0 0 10px 5px #356b0b inset;
+    -o-box-shadow: 0 0 10px 5px #356b0b inset;
+     
+}
+    
+        button{
+            
+            padding: 5px;
+            width: 100px;
+        }
+    
+    
+        #container{
+            position: relative;
+        }
+     #container2{
+            position: relative;
+         background-color: white;
+         left: 310px;
+         top: 523px;
+         width: 230px;
+         height: 20px;
+        }
+        
+        TEXTAREA{
+  background: transparent;
+  color: black;
+  resize: none;
+  border: 0 none;
+  width: 55%;
+  font-size: ;
+  outline: none;
+  height: 50%;
+  position: relative;
+font-size: 1.2em;
+}
+        
+        
+    </style>
+
+</head>
+<body>
+<center>
+<ul id="menu">
+	<li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage">Fourth slide</a></li>
+</ul></center>
+
+
+<div id="myContainer">
+
+	<div class="section" id="section1">
+		<div class="slide" id="slide11">
+			<h1>Section 1</h1>
+			<p>DRAG AND MOVE</p>
+				<p>Use `dragAndMove: true` or `dragAndMove: "fingersonly" `</p>
+			
+		</div>
+		<div class="slide" id="slide12"><h1>Slide 1.2</h1></div>
+		<div class="slide" id="slide13"><h1>Slide 1.3</h1></div>
+	</div>
+	<div class="section" data-percentage="60" id="section2">
+		<div class="content"><h1>Section 2</h1></div>
+	</div>
+	<div class="section" id="section3">
+		<div id='db'><div class="slide"><div id='dairy'><script>
+    
+    var studentsArray =[];
+    
+    function init(){
+        
+        document.getElementById("tablerows").innerHTML="";
+        if (localStorage.studentsRecord){
+            studentsArray = JSON.parse(localStorage.studentsRecord);
+            for (var i=0; i <studentsArray.length; i++) {
+                
+                perpareTableCell(i,studentsArray[i].q1,studentsArray[i].q2);
+            }
+        }
+    }
+    
+    function onRegisterPressed () {
+        var q1 = document.getElementById("q1").value;
+        var q2 = document.getElementById("q2").value;
+        
+        
+        
+        
+        
+        
+        var stuObj= { q1:q1,
+                     q2:q2}
+        
+        
+     if (selectedIndex === -1){
+          studentsArray.push(stuObj);   
+            
+        }else{
+            
+            studentsArray.splice(selectedIndex,1,stuObj);
+        }
+                     
+        localStorage.studentsRecord = JSON.stringify(studentsArray);
+        init();
+        onclarpressed();
+                
+        document.getElementById("q1").value="";
+        document.getElementById("q2").value="";
+        
+        
+        document.getElementById("submit").value="";
+        
+
+                
+    }
+        function perpareTableCell (index,q1,q2) {
+            var table = document.getElementById("tablerows");
+            var row = table.insertRow()
+            var actionCell = row.insertCell(0);
+            var q1cell = row.insertCell(1)
+            var q2Cell = row.insertCell(2);
+            
+            
+            
+            
+            
+            actionCell.innerHTML = '<button onclick="onEditpressed('+index+')">Edit</button><br><button onclick="deleteTableRow('+index+')">Delect</button>';
+            q1cell.innerHTML = q1;
+            q2Cell.innerHTML = q2;
+            
+            
+           
+            
+        }
+
+    function deleteTableRow(index){
+        /*var table = document.getElementById("regtable"); 
+        table.deleteRow(index+1);*/
+        studentsArray.splice(index,1);
+        localStorage.studentsRecord = JSON.stringify(studentsArray);
+        init();
+    }
+    
+    function onclarpressed(){
+        selectedIndex = -1;
+        
+                
+        document.getElementById("q1").value="";
+        document.getElementById("q2").value="";
+        
+        
+        document.getElementById('submit').innerHTML = "Saved";
+    }
+    
+    var selectedIndex = -1;
+    function onEditpressed(index){
+        selectedIndex = index;
+        var stuObj = studentsArray[index];
+        document.getElementById("q1").value = stuObj.q1;
+        document.getElementById("q2").value = stuObj.q2;
+        
+        document.getElementById('submit').innerHTML = "Update";
+    }
+        
+            
+            window.onload = function(){
+    document.getElementById('close').onclick = function(){
+        this.parentNode.parentNode.parentNode
+        .removeChild(this.parentNode.parentNode);
+        return false;
+    };
+};
+    
+</script>
+    
+<div id="con2">
+<div class="container">
+    
+    <header class="headerbar top"><center><strong></strong></center>
+     </header>
+    <aside class="leftbar">
+        <div>
+             
+            <label for="submit"></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="submit" placeholder="to edit,update or delete you text click on the arrow on the left"onclick="onRegisterPressed()">Save</button>
+            
+            
+        <fieldset>
+            <label for="q27"><span>Date:</span></label>
+            <input type="text" placeholder="d/m/y or arrenge it however" id="q1">
+    
+            <br>
+            
+             <LABEL FOR=addr ACCESSKEY=A><br><TEXTAREA NAME=address id="q2" ROWS=20 COLS=32></TEXTAREA></LABEL>
+            </fieldset>
+            
+            
+           
+          
+    </div>    
+        </aside>
+        
+        <aside class="rightbar">
+        
+            
+        </aside>
+    
+        <footer class="headerbar bottom"></footer>
+
+    </div></div></div>
+		<div class="slide"><div id="con1"><div id='dairy2'><table id="regtable"  BORDER=1 CELLPADDING=1>
+          <font class='rf'>Records</font>
+            <br>
+            <br>
+                <tr>
+                <th>Action</th>
+                <th>Yes/No</th>
+                <th>Policy no.</th>
+               
+                
+            </tr>
+                
+                <tbody id="tablerows">
+                
+                </tbody>
+            
+            </table><div id="note" class="note" onclick="hidden='hidden'"> 
+	<ul>
+	Click the left arrow there you will find an option To edit or delete your saved notes after you have saved them.
+	</ul>
+</div></div></div>
+        </div>
+		<div class="slide"></div>
+		<div class="slide"></div>
+	</div></div></div>
+	<div class="section" id="section4"><h1>Section 4</h1></div>
+</div>
+
+
+
+<input type="hidden" id="_4" value="3" />
+
+    </body>
+</html>
